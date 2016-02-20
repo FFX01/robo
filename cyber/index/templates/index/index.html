@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+    {% if boards %}
+        {% for board in boards %}
+            <h2><a href="{% url 'board:single_board' slug=board.slug %}">{{board.name}}</a></h2>
+            <p>{{board.slug}}<br>
+            {{board.info}}</p>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

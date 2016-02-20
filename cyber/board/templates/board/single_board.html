@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{board.name}}</h1>
+{% if board.threads.all %}
+    {% for thread in board.threads.all %}
+        {% if thread.title %}
+            <h3>{{thread.title}}</h3>
+        {% endif %}
+        <p>{{thread.timestamp}} - id: {{thread.id}}<br>
+        Replies: {{thread.get_post_count}}</p>
+    {% endfor %}
+{% endif %}
+{% endblock %}
