@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    {% if thread.posts.all %}
+        {% for post in thread.posts.all %}
+            <div class="row">
+                <div class="three columns">
+                    <img src="{{post.image.url}}" alt="" width="100%">
+                </div>
+                <div class="nine columns">
+                    {{post.body}}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

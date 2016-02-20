@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.views.static import serve
+from django.conf import settings
 from django.contrib import admin
 from index.views import IndexView
 
@@ -34,8 +36,15 @@ urlpatterns = [
         ),
     ),
     url(
+        r'^media/(?P<path>.*)$',
+        'django.views.static.serve',
+        {'document_root': settings.MEDIA_ROOT}
+    ),
+    url(
         r'^',
         IndexView.as_view(),
         name='index',
     ),
 ]
+
+

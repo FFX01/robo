@@ -1,0 +1,9 @@
+{% if boards %}
+    <div class="board-list container">
+        <ul>
+            {% for board in boards %}
+                <li><a href="{% url 'board:single_board' slug=board.slug %}">{{board.name}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

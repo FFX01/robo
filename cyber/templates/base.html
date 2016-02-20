@@ -1,9 +1,15 @@
 {% load staticfiles %}
 
+{% load board_list %}
+
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+    <link rel="stylesheet" href="{% static 'Skeleton/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'Skeleton/css/skeleton.css' %}">
+</head>
 <body>
+{% list_boards %}
 {% block content %}
 <h1>Nothing to see here</h1>
 {% endblock %}

@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="main">
+<div class="container">
     {% if boards %}
         {% for board in boards %}
-            <h2><a href="{% url 'board:single_board' slug=board.slug %}">{{board.name}}</a></h2>
-            <p>{{board.slug}}<br>
-            {{board.info}}</p>
+            <div class="row">
+                <div class="twelve columns">
+                    <h2><a href="{% url 'board:single_board' slug=board.slug %}">{{board.name}}</a></h2>
+                    <p>{{board.slug}}<br>
+                    {{board.info}}</p>
+                </div>
+            </div>
         {% endfor %}
     {% endif %}
 </div>
