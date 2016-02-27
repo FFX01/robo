@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
 from django.views.generic import View
 
 from .models import Thread
+from post.models import Post
 
 
 class SingleThread(View):
@@ -16,3 +18,9 @@ class SingleThread(View):
             'thread/single_thread.html',
             context,
         )
+
+    def post(self, request):
+        # TODO: Save new Post
+        # TODO: Create Post model form.
+        print(request.FILES)
+        return HttpResponse('Thanks')

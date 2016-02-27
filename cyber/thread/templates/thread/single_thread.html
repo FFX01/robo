@@ -9,8 +9,24 @@
                     <img src="{{post.image.url}}" alt="" width="100%">
                 </div>
                 <div class="nine columns">
-                    {{post.body}}
+                    <span class="post-meta">id: {{post.id}} - {{post.timestamp}}</span>
+                    <div class="post-body">{{post.body}}</div>
+                    <div class="post-reply">
+                        <input type="button" value="reply">
+                    </div>
                 </div>
+            </div>
+            <div class="post-reply-box">
+                <form method="POST" class="post-reply-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" id="new_post_parent_thread" name="new_post_parent_thread" value="{{post.parent_thread.id}}">
+                    <input type="hidden" id="new_post_parent_post" name="new_post_parent_post" value="{{post.id}}">
+                    <label for="new_post_image">Image</label>
+                    <input type="file" accept="image/*" id="new_post_image" name="new_post_image" class="post-input-image">
+                    <label for="new_post_body">Reply</label>
+                    <textarea id="new_post_body" name="new_post_body" class="post-input-body"></textarea><br>
+                    <input type="submit" class="post-reply-submit" value="Post">
+                </form>
             </div>
         {% endfor %}
     {% endif %}
