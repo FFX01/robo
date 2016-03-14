@@ -17,7 +17,7 @@
                     {% endif %}
                     <div id="post-{{post.id}}-body" class="post-body">{{post.body}}</div>
                     <div id="post-{{post.id}}-reply-btn-wrapper" class="post-reply-btn-wrapper">
-                        <input id="post-{{post.id}}-reply-btn" class="post-reply-btn" type="button" value="reply">
+                        <input data-id="{{post.id}}" id="post-{{post.id}}-reply-btn" class="post-reply-btn" type="button" value="reply">
                     </div>
                 </div>
             </div>

@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="{% static 'Skeleton/css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'Skeleton/css/skeleton.css' %}">
     <link rel="stylesheet" href="{% static 'site/css/main.css' %}">
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
 </head>
 <body>
 {% list_boards %}
 {% block content %}
 <h1>Nothing to see here</h1>
 {% endblock %}
+<script src="{% static 'site/js/main.js' %}"></script>
 </body>
 </html>
