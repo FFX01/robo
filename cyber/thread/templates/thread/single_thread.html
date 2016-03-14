@@ -4,28 +4,28 @@
 <div class="container">
     {% if thread.posts.all %}
         {% for post in thread.posts.all %}
-            <div id="post-{{post.id}}" class="row">
-                <div class="three columns">
-                    <img src="{{post.image.url}}" alt="" width="100%">
+            <div id="post-{{post.id}}" class="row post">
+                <div id="post-{{post.id}}-image-wrapper" class="three columns post-image-wrapper">
+                    <img id="post-{{post.id}}-image" class="post-image" src="{{post.image.url}}" alt="" width="100%">
                 </div>
-                <div class="nine columns">
-                    <span class="post-meta">id: {{post.id}} - {{post.timestamp}}</span>
+                <div id="post-{{post.id}}-content-wrapper" class="nine columns post-content-wrapper">
+                    <span id="post-{{post.id}}-meta" class="post-meta">id: {{post.id}} - {{post.timestamp}}</span>
                     {% if post.parent %}
-                        <span id="post-parent-{{post.id}}" class="post-parent">
-                            <a href="#post-{{post.parent.id}}">Parent: {{post.parent.id}}</a>
+                        <span id="post-{{post.id}}-parent" class="post-parent">
+                            <a id="post-{{post.id}}-parent-link" class="post-parent-link" href="#post-{{post.parent.id}}">Parent: {{post.parent.id}}</a>
                         </span>
                     {% endif %}
-                    <div class="post-body">{{post.body}}</div>
-                    <div class="post-reply">
-                        <input id="post-reply-btn-{{post.id}}" type="button" value="reply">
+                    <div id="post-{{post.id}}-body" class="post-body">{{post.body}}</div>
+                    <div id="post-{{post.id}}-reply-btn-wrapper" class="post-reply-btn-wrapper">
+                        <input id="post-{{post.id}}-reply-btn" class="post-reply-btn" type="button" value="reply">
                     </div>
                 </div>
             </div>
-            <div class="post-reply-box">
-                <form method="post" class="post reply form" enctype="multipart/form-data">
+            <div id="post-{{post.id}}-reply-wrapper" class="post-reply-wrapper">
+                <form method="post" id="post-{{post.id}}-reply-form" class="post-reply-form" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{post_form.as_p}}
-                    <input type="submit" value="Submit">
+                    <input id="post-{{post.id}}-reply-submit-btn" class="post-reply-submit-btn" type="submit" value="Submit">
                 </form>
             </div>
         {% endfor %}
