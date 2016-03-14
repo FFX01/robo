@@ -4,12 +4,17 @@
 <div class="container">
     {% if thread.posts.all %}
         {% for post in thread.posts.all %}
-            <div class="row">
+            <div id="post-{{post.id}}" class="row">
                 <div class="three columns">
                     <img src="{{post.image.url}}" alt="" width="100%">
                 </div>
                 <div class="nine columns">
                     <span class="post-meta">id: {{post.id}} - {{post.timestamp}}</span>
+                    {% if post.parent %}
+                        <span id="post-parent-{{post.id}}" class="post-parent">
+                            <a href="#post-{{post.parent.id}}">Parent: {{post.parent.id}}</a>
+                        </span>
+                    {% endif %}
                     <div class="post-body">{{post.body}}</div>
                     <div class="post-reply">
                         <input id="post-reply-btn-{{post.id}}" type="button" value="reply">
