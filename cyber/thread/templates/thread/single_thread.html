@@ -26,6 +26,7 @@
                     {% csrf_token %}
                     {{post_form.as_p}}
                     <input id="post-{{post.id}}-reply-submit-btn" class="post-reply-submit-btn" type="submit" value="Submit">
+                    <span id="post-{{post.id}}-reply-cancel-btn" class="post-reply-cancel-btn" data-id="{{post.id}}">Cancel</span>
                 </form>
             </div>
         {% endfor %}

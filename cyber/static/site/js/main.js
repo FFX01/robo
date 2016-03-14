@@ -9,3 +9,15 @@ $('.post-reply-btn').click(function(){
     });
 
 });
+
+$('.post-reply-cancel-btn').click(function(){
+
+    var id = $(this).attr('data-id');
+
+    var form = '#post-' + id + '-reply-wrapper';
+
+    $(form).css({
+        'display': 'none'
+    });
+
+});
