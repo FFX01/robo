@@ -3,6 +3,25 @@
 {% block content %}
 <div class="container">
     <div class="row">
+        <div class="four columns"></div>
+        <div class="four columns">
+            <div class="new-thread-form-wrapper">
+                <form id="board-{{board.id}}-new-thread-form" class="new-thread-form" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="parent_board"  value="{{board.id}}" />
+                    <label for="thread_title">Title:</label>
+                    <input id="board-{{board.id}}-new-thread-form-title" class="new-thread-form-title" name="thread_title" type="text" />
+                    <label for="image">Image:</label>
+                    <input id="board-{{board.id}}-new-thread-form-image" class="new-thread-form-image" name="image" type="file" />
+                    <label for="body">Body:</label>
+                    <textarea name="body" id="board-{{board.id}}-new-thread-form-body" class="new-thread-form-body" cols="30" rows="10"></textarea>
+                    <input id="board-{{board.id}}-new-thread-form-submit-btn" class="new-thread-form-submit-btn" type="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+        <div class="four columns"></div>
+    </div>
+    <div class="row">
         <h1>{{board.name}}</h1>
         {% if board.threads.all %}
             {% for thread in board.threads.all %}
