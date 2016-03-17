@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<div class="container" xmlns="http://www.w3.org/1999/html">
     {% if thread.posts.all %}
         {% for post in thread.posts.all %}
             <div id="post-{{post.id}}" class="row post">
@@ -24,9 +24,12 @@
             <div id="post-{{post.id}}-reply-wrapper" class="post-reply-wrapper">
                 <form method="post" id="post-{{post.id}}-reply-form" class="post-reply-form" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{post_form.as_p}}
+                    <p>{{post_form.image}}</p>
+                    <p>{{post_form.body}}</p>
+                    <input id="id_parent" type="hidden" name="parent" value="{{post.id}}" />
+                    <input id="id_parent_thread" type="hidden" name="parent_thread" value="{{thread.id}}" />
                     <input id="post-{{post.id}}-reply-submit-btn" class="post-reply-submit-btn" type="submit" value="Submit">
-                    <span id="post-{{post.id}}-reply-cancel-btn" class="post-reply-cancel-btn" data-id="{{post.id}}">Cancel</span>
+                    <input type="button" id="post-{{post.id}}-reply-cancel-btn" class="post-reply-cancel-btn" data-id="{{post.id}}"  value="Cancel"/>
                 </form>
             </div>
         {% endfor %}
