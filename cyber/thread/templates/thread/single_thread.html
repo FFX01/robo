@@ -2,6 +2,21 @@
 
 {% block content %}
 <div class="container" xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+        <div class="four columns"></div>
+        <div class="four columns">
+            <div class="top-level-post-form-wrapper">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p>{{post_form.image}}</p>
+                    <p>{{post_form.body}}</p>
+                    <input id="id_parent_thread" type="hidden" name="parent_thread" value="{{thread.id}}">
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="four columns"></div>
+    </div>
     {% if thread.posts.all %}
         {% for post in thread.posts.all %}
             <div id="post-{{post.id}}" class="row post">
