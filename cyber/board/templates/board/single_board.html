@@ -3,6 +3,27 @@
 {% block content %}
 <div class="container">
     <div class="row">
+        <div class="four columns board-title-left"></div>
+        <div class="four columns board-title-wrapper">
+            <h1 class="board-title">{{board.name}}</h1>
+        </div>
+        <div class="four columns board-title-right"></div>
+    </div>
+    {% if board.info %}
+        <div class="row">
+            <div class="twelve columns board-info-wrapper">
+                {{board.info|safe}}
+            </div>
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="four columns"></div>
+        <div class="four columns new-thread-form-title-wrapper">
+            <h3 class="new-form-title">New Thread</h3>
+        </div>
+        <div class="four columns"></div>
+    </div>
+    <div class="row">
         <div class="four columns"></div>
         <div class="four columns">
             <div class="new-thread-form-wrapper">
@@ -22,7 +43,6 @@
         <div class="four columns"></div>
     </div>
     <div class="row">
-        <h1>{{board.name}}</h1>
         {% if board.threads.all %}
             {% for thread in board.threads.all %}
                 {% if thread.title %}
