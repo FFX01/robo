@@ -1,3 +1,8 @@
+.columns
+{
+    min-height: 1px;
+}
+
 .post-reply-wrapper
 {
     display: none;
