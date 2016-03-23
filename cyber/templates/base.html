@@ -12,7 +12,14 @@
     <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
 </head>
 <body>
-{% list_boards %}
+<div class="title-bar row">
+    <div class="site title wrapper three columns">
+        <h3 class="site title"><a href="{% url 'index' %}" class="site title link" title="Cyboard Home">Cyboard</a></h3>
+    </div>
+    <div class="board list wrapper nine columns">
+        {% list_boards %}
+    </div>
+</div>
 {% block content %}
 <h1>Nothing to see here</h1>
 {% endblock %}

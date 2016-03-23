@@ -41,7 +41,7 @@ urlpatterns = [
         {'document_root': settings.MEDIA_ROOT}
     ),
     url(
-        r'^',
+        r'^$',
         IndexView.as_view(),
         name='index',
     ),
