@@ -8,6 +8,14 @@
                 <div class="twelve columns">
                     <h2><a href="{% url 'board:single_board' slug=board.slug %}">{{board.name}}</a></h2>
                     <p>/{{board.slug}}/</p>
+                    <div class="index-latest-post-info">
+                        <div class="index-latest-post-image">
+                            <img src="{{board.threads.latest.posts.first.image.url}}" alt="" width="100%">
+                        </div>
+                        <div class="index-latest-post-text">
+                            <p>{{board.threads.latest.posts.first.body|slice:':140'}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endfor %}

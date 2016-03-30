@@ -36,6 +36,7 @@ class Post(MPTTModel):
     class Meta:
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
+        get_latest_by = 'id'
 
     def __str__(self):
         return str(self.id)

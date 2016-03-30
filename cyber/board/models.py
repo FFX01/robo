@@ -38,6 +38,7 @@ class Board(models.Model):
     class Meta:
         verbose_name = 'Board'
         verbose_name_plural = 'Boards'
+        get_latest_by = 'id'
 
     def __str__(self):
         return self.name

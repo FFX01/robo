@@ -30,6 +30,7 @@ class Thread(models.Model):
     class Meta:
         verbose_name = 'Thread'
         verbose_name_plural = 'Threads'
+        get_latest_by = 'id'
 
     def __str__(self):
         return "%d - %s" % (self.id, self.title)
